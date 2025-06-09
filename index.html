@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>StudyMate Access</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f5f6fa;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      width: 350px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    input, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+    }
+
+    .message {
+      margin-top: 1rem;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .error { color: red; }
+    .success { color: green; }
+
+    .switch {
+      text-align: center;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      cursor: pointer;
+      color: #0077cc;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2 id="formTitle">Login to StudyMate</h2>
+
+    <!-- Login Form -->
+    <div id="loginForm">
+      <input type="email" id="emailInput" placeholder="Email" />
+      <input type="password" id="passwordInput" placeholder="Password" />
+      <button onclick="login()">Login</button>
+      <div class="message" id="loginMessage"></div>
+      <div class="switch" onclick="showRequestForm()">Need access? Request here</div>
+    </div>
+
+    <!-- Request Access Form -->
+    <form id="requestForm" action="https://formsubmit.co/nikitabhushanwar03@gmail.com" method="POST" style="display: none;">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Email" required />
+      <input type="password" name="password" placeholder="Desired Password" required />
+      <input type="hidden" name="_subject" value="New Access Request from StudyMate" />
+      <input type="hidden" name="_captcha" value="false">
+      <button type="submit">Request Access</button>
+      <div class="switch" onclick="showLoginForm()">Back to Login</div>
+    </form>
+  </div>
+
+  <script>
+    const approvedUsers = [
+      { email: "alice@example.com", password: "12345", name: "Alice" },
+      { email: "bob@example.com", password: "bobpass", name: "Bob" },
+      { email: "student@nit.edu", password: "study123", name: "NIT Student" }
+    ];
+
+    function login() {
+      const email = document.getElementById("emailInput").value.trim();
+      const password = document.getElementById("passwordInput").value;
+      const msg = document.getElementById("loginMessage");
+
+      const user = approvedUsers.find(u => u.email === email && u.password === password);
+
+      if (user) {
+        msg.innerHTML = ✅ Welcome, ${user.name}! Access granted.;
+        msg.className = "message success";
+      } else {
+        msg.innerHTML = ❌ Access denied. Invalid email or password.;
+        msg.className = "message error";
+      }
+    }
+
+    function showRequestForm() {
+      document.getElementById("loginForm").style.display = "none";
+      document.getElementById("requestForm").style.display = "block";
+      document.getElementById("formTitle").textContent = "Request Access";
+    }
+
+    function showLoginForm() {
+      document.getElementById("loginForm").style.display = "block";
+      document.getElementById("requestForm").style.display = "none";
+      document.getElementById("formTitle").textContent = "Login to StudyMate";
+    }
+  </script>
+
+</body>
+</html>
