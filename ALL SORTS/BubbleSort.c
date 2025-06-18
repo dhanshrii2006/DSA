@@ -15,7 +15,6 @@ int main()
     {
         scanf("%d", &a[i]);
     }
-
     // Bubble Sort Algorithm (Optimized)
     for (i = 0; i < n - 1; i++)
     {
@@ -46,3 +45,5 @@ int main()
     printf("\n");
     return 0;
 }
+
+
