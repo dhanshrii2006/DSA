@@ -2,7 +2,7 @@
 using namespace std;
 
 // Function to reverse of digits in a number
- int reverse(int num)
+ int (int num)
  {
 
 
