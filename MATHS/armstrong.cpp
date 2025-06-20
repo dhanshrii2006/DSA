@@ -12,11 +12,11 @@ using namespace std;
 
     while (num > 0) 
     {
-        int digit = n % 10;
+        int digit = num % 10;
 
         sum = sum + pow(digit, digits); // Raise digit to power of digits
       
-        num = n / 10; // Remove last digit because we have already processed it 
+        num = num / 10; // Remove last digit because we have already processed it 
     }
 
     return sum == original;
@@ -53,10 +53,5 @@ using namespace std;
         sum = 152 + pow(1, 3) = 152 + 1 = 153
 
 
-
-
-
-
-
-
+        try exchanging pow function
  */
