@@ -29,7 +29,6 @@ using namespace std;
 
      return 0;
  }
-
  /*
  pseudo code: using extraction we get digits in reverse order we use reverse function to reverse the digits of a number
  reverse = reverse * 10 + digit;
