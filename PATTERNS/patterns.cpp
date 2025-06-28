@@ -54,7 +54,6 @@ void pattern3(int n)
 
 // This code prints a right-angled triangle pattern of numbers
 // where the numbers in each row correspond to the column number.
-
 void pattern4(int n)
 {
     for (int i = 1; i <= n; i++)
