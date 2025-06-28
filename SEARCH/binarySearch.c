@@ -34,7 +34,6 @@ int main()
         printf("Element found at index %d\n", result);
     else
         printf("Element not found\n");
-
 /*
 if(result == -1)
 {
