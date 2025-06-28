@@ -37,7 +37,6 @@ if (i==n)
 {
  printf("element not found");
 }
-
 // if(found==0)
 //{printf("element not found");}
 
